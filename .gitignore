@@ -1,0 +1,24 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+venv/
+env/
+ENV/
+.venv/
+
+# Large Datasets (Avoid exceeding GitHub's 100MB file limit)
+# Note: Keep model.joblib and metrics.json committed so the deployed app has them ready!
+phishing_site_urls.csv
+*.csv
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
