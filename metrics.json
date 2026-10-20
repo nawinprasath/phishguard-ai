@@ -1,0 +1,63 @@
+{
+    "dataset_name": "phishing_site_urls.csv",
+    "total_dataset_size": 120,
+    "train_samples": 96,
+    "test_samples": 24,
+    "num_features": 13,
+    "best_model": "Logistic Regression",
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "confusion_matrix": {
+        "tn": 12,
+        "fp": 0,
+        "fn": 0,
+        "tp": 12
+    },
+    "all_models": [
+        {
+            "model_name": "Logistic Regression",
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "confusion_matrix": {
+                "tn": 12,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12
+            },
+            "training_time_sec": 0.01
+        },
+        {
+            "model_name": "Random Forest",
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "confusion_matrix": {
+                "tn": 12,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12
+            },
+            "training_time_sec": 0.15
+        },
+        {
+            "model_name": "Gradient Boosting",
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "confusion_matrix": {
+                "tn": 12,
+                "fp": 0,
+                "fn": 0,
+                "tp": 12
+            },
+            "training_time_sec": 0.05
+        }
+    ],
+    "trained_at": "2026-10-20 21:05:13"
+}
