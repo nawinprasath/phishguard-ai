@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PhishGuard - AI Phishing URL Detection</title>
-  <meta name="description" content="Real-time AI-powered Phishing URL detection using machine learning and lexical heuristic analysis.">
+  <meta name="description"
+    content="Real-time AI-powered Phishing URL detection using machine learning and lexical heuristic analysis.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
   <div class="bg-glow bg-glow-1"></div>
   <div class="bg-glow bg-glow-2"></div>
@@ -19,9 +24,10 @@
     <div class="nav-container">
       <div class="brand">
         <div class="brand-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="m9 12 2 2 4-4"/>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
           </svg>
         </div>
         <div class="brand-text">
@@ -35,9 +41,10 @@
           <span class="status-dot"></span>
           <span class="status-text" id="modelStatusText">Connecting...</span>
         </div>
-        
+
         <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme" title="Toggle Light/Dark Theme">
-          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -48,7 +55,8 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
@@ -65,26 +73,22 @@
       </div>
       <h1 class="hero-title">Protect Yourself from <span class="gradient-text">Phishing & Malicious</span> Links</h1>
       <p class="hero-subtitle">
-        Instant offline heuristic inspection analyzing URL length, obfuscated tokens, rogue IPs, and spoofed subdomains in sub-milliseconds.
+        Instant offline heuristic inspection analyzing URL length, obfuscated tokens, rogue IPs, and spoofed subdomains
+        in sub-milliseconds.
       </p>
 
       <!-- URL Input Card -->
       <div class="scanner-card">
         <form id="scanForm" class="scanner-form" onsubmit="return false;">
           <div class="input-wrapper">
-            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input 
-              type="text" 
-              id="urlInput" 
-              class="url-input" 
-              placeholder="Paste or type any URL here (e.g., https://example.com/login)..."
-              autocomplete="off"
-              spellcheck="false"
-              required
-            >
+            <input type="text" id="urlInput" class="url-input"
+              placeholder="Paste or type any URL here (e.g., https://example.com/login)..." autocomplete="off"
+              spellcheck="false" required>
             <button type="button" id="clearBtn" class="clear-btn" title="Clear input" style="display: none;">
               &times;
             </button>
@@ -102,7 +106,8 @@
             <button type="button" class="chip chip-safe" data-url="https://en.wikipedia.org/wiki/Computer_security">
               <span class="chip-dot safe"></span> Safe (Wikipedia)
             </button>
-            <button type="button" class="chip chip-phish" data-url="http://secure-login.bankofamerica.com.account-update.xyz/verify">
+            <button type="button" class="chip chip-phish"
+              data-url="http://secure-login.bankofamerica.com.account-update.xyz/verify">
               <span class="chip-dot phish"></span> Phishing (Bank Spoof)
             </button>
             <button type="button" class="chip chip-ip" data-url="http://192.168.1.1/paypal/login.htm">
@@ -153,7 +158,7 @@
             <h3>Why this result? Feature Breakdown</h3>
             <span class="breakdown-sub" id="featureCountText">Analyzing 13 heuristic features</span>
           </div>
-          
+
           <div class="feature-grid" id="featureGrid">
             <!-- Injected via JavaScript -->
           </div>
@@ -254,7 +259,8 @@
       </div>
 
       <div id="metricsNotice" class="metrics-notice" style="display: none;">
-        <p>⚠️ <strong>Model not trained yet:</strong> Please run <code>python train_model.py</code> to train the classifier and generate real benchmark metrics.</p>
+        <p>⚠️ <strong>Model not trained yet:</strong> Please run <code>python train_model.py</code> to train the
+          classifier and generate real benchmark metrics.</p>
       </div>
     </section>
 
@@ -264,23 +270,28 @@
         <div class="section-title-wrap">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+            </path>
           </svg>
           <h2>How PhishGuard Works</h2>
         </div>
       </div>
       <div class="features-summary-grid">
         <div class="info-card">
-          <h4>1. 100% Lexical & Safe</h4>
-          <p>PhishGuard extracts lexical patterns directly from the URL string without issuing network requests, keeping you safe from malware payloads or drive-by infections.</p>
+          <h4>1. Lexical-Only Analysis</h4>
+          <p>PhishGuard extracts lexical patterns directly from the URL string without issuing network requests, keeping
+            you safe from malware payloads or drive-by infections.</p>
         </div>
         <div class="info-card">
           <h4>2. Structural Pattern Recognition</h4>
-          <p>Detects spoofing techniques including subdomain nesting, character obfuscation, raw IP domain spoofing, and sneaky "@" authentication bypasses.</p>
+          <p>Detects spoofing techniques including subdomain nesting, character obfuscation, raw IP domain spoofing, and
+            sneaky "@" authentication bypasses.</p>
         </div>
         <div class="info-card">
           <h4>3. Sub-Millisecond Speed</h4>
-          <p>Zero DNS queries or page rendering latency means predictions execute in under 3 milliseconds, ideal for high-throughput browser extensions and firewalls.</p>
+          <p>Zero DNS queries or page rendering latency means predictions execute in under 3 milliseconds, ideal for
+            high-throughput browser extensions and firewalls.</p>
         </div>
       </div>
     </section>
@@ -290,7 +301,10 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="disclaimer-box">
-        <strong>⚠️ Student ML Project Disclaimer:</strong> PhishGuard is built for educational, research, and portfolio demonstration by a B.Tech AI & Data Science student. While trained on rigorous empirical datasets, heuristic URL classification does not guarantee complete security and should be supplemented with full antivirus and browser security suites.
+        <strong>⚠️ Student ML Project Disclaimer:</strong> PhishGuard is built for educational, research, and portfolio
+        demonstration by a B.Tech AI & Data Science student. While trained on rigorous empirical datasets, heuristic URL
+        classification does not guarantee complete security and should be supplemented with full antivirus and browser
+        security suites.
       </div>
       <div class="footer-meta">
         <span>PhishGuard © 2026 • Built with Python, Flask & Scikit-Learn</span>
@@ -300,4 +314,5 @@
 
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
+
 </html>
